@@ -1,7 +1,11 @@
-const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
+import express from 'express';
+import {promises as fs} from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -52,5 +56,5 @@ async function guardarTorneos(torneos) {
 
 // Iniciar el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor en ejecución en http://localhost:${port}`);
+    console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
